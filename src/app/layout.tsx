@@ -11,10 +11,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <body style={{ background: 'linear-gradient(135deg, #E0F7FA 0%, #BBDEFB 100%)', backgroundAttachment: 'fixed' }}>
-        <!--
-          おや、こんなところまで見に来るとは、なかなか鋭いね！
-          さりさばの秘密が隠されているかも…？
-        -->
+        {/*
+          鶏が殺された時の鳴き声は何なのだろうか
+        */}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
