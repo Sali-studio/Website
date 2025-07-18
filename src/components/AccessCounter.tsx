@@ -14,10 +14,15 @@ const AccessCounter = () => {
         const getData = await getResponse.json();
         setCount(getData.count);
 
-        // アクセス時にカウンターをインクリメント
-        await fetch('/api/counter', {
-          method: 'POST',
-        });
+        // localStorage を使用して、ユーザーが既にカウントされたかどうかを判断
+        const hasCounted = localStorage.getItem('hasCounted');
+        if (!hasCounted) {
+          // 初回アクセス時のみカウンターをインクリメント
+          await fetch('/api/counter', {
+            method: 'POST',
+          });
+          localStorage.setItem('hasCounted', 'true');
+        }
       } catch (error) {
         console.error('Failed to fetch or increment counter:', error);
         setCount(0); // エラー時は0を表示
@@ -25,6 +30,11 @@ const AccessCounter = () => {
     };
 
     fetchCount();
+
+    // クリーンアップ関数で、コンポーネントがアンマウントされる際に localStorage のフラグをリセット
+    return () => {
+      localStorage.removeItem('hasCounted');
+    };
   }, []);
 
   return (

@@ -22,6 +22,7 @@ export default function SaliStudioPage() {
         const repoNames = [
           { owner: 'Sali-studio', repo: 'Luna' },
           { owner: 'Sali-studio', repo: 'Relauncher-Unofficial' },
+          { owner: 'Sali-studio', repo: 'Website' },
           // 他に表示したいリポジトリがあればここに追加してください
           // 例: { owner: 'your-github-username', repo: 'your-repo-name' },
         ];

@@ -145,6 +145,24 @@ const Header = () => {
           <Button
             color="inherit"
             component={Link}
+            href="/news"
+            sx={{
+              borderRadius: '20px',
+              px: 2,
+              py: 1,
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: 'rgba(2, 152, 241, 0.1)',
+              },
+            }}
+          >
+            News
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.1 }}>
+          <Button
+            color="inherit"
+            component={Link}
             href="/other-links"
             sx={{
               borderRadius: '20px',
