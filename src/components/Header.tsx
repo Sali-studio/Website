@@ -73,6 +73,24 @@ const Header = () => {
           <Button
             color="inherit"
             component={Link}
+            href="/about"
+            sx={{
+              borderRadius: '20px',
+              px: 2,
+              py: 1,
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: 'rgba(2, 152, 241, 0.1)',
+              },
+            }}
+          >
+            About Us
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.1 }}>
+          <Button
+            color="inherit"
+            component={Link}
             href="/sali-studio"
             sx={{
               borderRadius: '20px',

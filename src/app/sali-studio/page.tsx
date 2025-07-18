@@ -104,8 +104,8 @@ export default function SaliStudioPage() {
         transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
       >
         <Typography variant="body1" component="p" sx={{ mb: 4 }}>
-          Sali Studioは、さりさば内で様々なクリエイティブなプロジェクトを手掛ける開発チームです。
-          ゲーム開発、ウェブサイト制作、ツール開発など、多岐にわたる分野で活動しています。
+          Sali Studioは、さりさば内で様々なプロジェクトを手掛ける開発チームです。
+          ゲーム開発、ウェブサイト制作、ツール開発など、幅広い分野で活動しています。
           詳細については、今後の更新にご期待ください！
         </Typography>
       </motion.div>
