@@ -14,14 +14,14 @@ export default function AboutPage() {
       name: '白熊',
       role: '共同設立者 / Sali Studio代表',
       description: 'さりさばの設立者の一人であり、Sali Studioの代表を務めています。',
-      avatar: '/images/bear_avatar.png', // 仮の画像パス
+      avatar: '/images/profile/shirokumaicon.png',
     },
     {
       id: 2,
       name: 'SalientTen',
       role: '共同設立者 / さりさば代表 / Sali Studioメンバー',
       description: '元のさりさばのリーダーでもあり、現在のさりさばの代表を務めています。様々なギルドの代表も務めています。',
-      avatar: '/images/salientten_avatar.png', // 仮の画像パス
+      avatar: '/images/profile/salienttenicon.png'
     },
     // 他の主要メンバーがいればここに追加してください
   ];
