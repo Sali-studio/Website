@@ -1,7 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/sali-studio/page": "app/sali-studio/page.js",
   "/guild/page": "app/guild/page.js",
   "/other-links/page": "app/other-links/page.js",
   "/page": "app/page.js",
-  "/servers/page": "app/servers/page.js"
+  "/servers/page": "app/servers/page.js",
+  "/api/counter/route": "app/api/counter/route.js"
 }

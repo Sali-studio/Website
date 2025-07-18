@@ -2,7 +2,7 @@
 'use client';
 import { Box, Button, Container, Typography } from '@mui/material';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react'; // useState を追加
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'; // Discordアイコンの代替としてChatアイコンを追加
 
 export default function Home() {
@@ -14,6 +14,15 @@ export default function Home() {
 
   const yTitle = useTransform(scrollYProgress, [0, 1], ["-50%", "50%"]);
   const yDescription = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
+
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
+
+  const handleTitleClick = () => {
+    setShowEasterEgg(true);
+    setTimeout(() => {
+      setShowEasterEgg(false);
+    }, 2000); // 2秒後に消える
+  };
 
   return (
     <Container
@@ -38,16 +47,31 @@ export default function Home() {
             variant="h1"
             component="h1"
             gutterBottom
+            onClick={handleTitleClick} // クリックイベントを追加
             sx={{
               fontWeight: 'bold',
               background: 'linear-gradient(45deg, #0298f1 30%, #64B5F6 90%)', // タイトルグラデーションを調整
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               fontSize: { xs: '3rem', sm: '4rem', md: '4.5rem' }, // レスポンシブなフォントサイズ
+              cursor: 'pointer', // カーソルをポインターに変更
+              '&:hover': { opacity: 0.8 }, // ホバーエフェクト
             }}
           >
             さりさば
           </Typography>
+          {showEasterEgg && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Typography variant="caption" color="text.secondary" sx={{ mt: -2, display: 'block' }}>
+                ああ、無駄に多い選択肢の世界。世界に選択肢があるのではなく、選択肢が世界なのだ。（意味分かる人教えて）。
+              </Typography>
+            </motion.div>
+          )}
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

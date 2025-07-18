@@ -1,6 +1,6 @@
 
 'use client';
-import React from 'react';
+import React, { useState } from 'react'; // useState を追加
 import { Box, Container, Typography, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,14 @@ import AccessCounter from './AccessCounter'; // AccessCounterコンポーネン�
 const Footer = () => {
   const pathname = usePathname();
   const [value, setValue] = React.useState(pathname);
+  const [showHiddenMessage, setShowHiddenMessage] = useState(false);
+
+  const handleHiddenClick = () => {
+    setShowHiddenMessage(true);
+    setTimeout(() => {
+      setShowHiddenMessage(false);
+    }, 3000); // 3秒後に消える
+  };
 
   React.useEffect(() => {
     setValue(pathname);
@@ -21,6 +29,23 @@ const Footer = () => {
           © 2025 Sali Studio. All rights reserved.
         </Typography>
         <AccessCounter /> {/* アクセスカウンターを追加 */}
+        <Box
+          sx={{
+            width: '20px',
+            height: '20px',
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            cursor: 'pointer',
+            // backgroundColor: 'rgba(255,0,0,0.1)', // デバッグ用
+          }}
+          onClick={handleHiddenClick}
+        />
+        {showHiddenMessage && (
+          <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+            サーモンを持たない不審な行動は果たして許可されるのだろうか
+          </Typography>
+        )}
       </Container>
 
       {/* Mobile Bottom Navigation */}
