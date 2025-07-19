@@ -1,4 +1,3 @@
-
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -7,7 +6,11 @@ import theme from '@/theme/theme';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
-import ScrollToTopButton from '@/components/ScrollToTopButton'; // ScrollToTopButtonをインポート
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+import dynamic from 'next/dynamic';
+
+const AccessCounter = dynamic(() => import('@/components/AccessCounter'), { ssr: false });
+const KonamiCodeHandler = dynamic(() => import('@/components/KonamiCodeHandler'), { ssr: false });
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -25,6 +28,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
               {props.children}
             </PageTransition>
             <Footer />
+            <AccessCounter />
+            <KonamiCodeHandler />
             <ScrollToTopButton />
           </ThemeProvider>
         </AppRouterCacheProvider>

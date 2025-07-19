@@ -4,7 +4,6 @@ import React, { useState } from 'react'; // useState を追加
 import { Box, Container, Typography, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import AccessCounter from './AccessCounter'; // AccessCounterコンポーネントをインポート
 
 const Footer = () => {
   const pathname = usePathname();
@@ -28,7 +27,7 @@ const Footer = () => {
         <Typography variant="body2" color="text.secondary">
           © 2025 Sali Studio. All rights reserved.
         </Typography>
-        <AccessCounter /> {/* アクセスカウンターを追加 */}
+        {/* <AccessCounter /> */}
         <Box
           sx={{
             width: '20px',
