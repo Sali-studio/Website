@@ -67,12 +67,12 @@ const Header = () => {
                 textAlign: 'center',
                 py: 1.5,
                 borderRadius: theme.shape.borderRadius * 2, // 角丸を適用
-                backgroundColor: theme.palette.background.default, // 背景色をテーマのdefaultに
-                boxShadow: theme.shadows[1], // Material 3のElevation 1を意識
+                backgroundColor: theme.palette.background.paper + '1A', // 透明度のある背景色
+                boxShadow: theme.shadows[0], // 影なし
                 transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                 '&:hover': {
-                  backgroundColor: theme.palette.action.hover, // ホバー時の背景色
-                  boxShadow: theme.shadows[3], // ホバー時のElevation 3を意識
+                  backgroundColor: theme.palette.primary.main + '1A', // ホバー時に青系の透明な背景色
+                  boxShadow: theme.shadows[1], // ホバー時にわずかな影
                   transform: 'translateY(-2px)', // ホバー時の浮き上がり
                 },
               }}
@@ -89,11 +89,13 @@ const Header = () => {
     <AppBar
       position="fixed" // fixed に変更
       sx={{
-        backgroundColor: scrolled ? theme.palette.background.paper + 'CC' : 'transparent', // スクロールで背景色をテーマのpaper色に変更
+        sx={{
+        backgroundColor: scrolled ? 'rgba(173, 216, 230, 0.3)' : 'transparent', // スクロールで水色系の透明な背景色に
         boxShadow: scrolled ? 3 : 0, // スクロールで影を追加
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out', // アニメーション
-        backdropFilter: scrolled ? 'blur(8px)' : 'none', // スクロールでぼかし効果
+        backdropFilter: scrolled ? 'blur(10px) saturate(180%) contrast(120%)' : 'none', // スクロールで液体ガラス効果
         color: scrolled ? theme.palette.text.primary : 'inherit', // スクロールでテキスト色をテーマのprimary text色に変更
+      }}
       }}
     >
       <Toolbar>
