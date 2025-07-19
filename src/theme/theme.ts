@@ -118,9 +118,12 @@ const theme = createTheme({
         }) => ({
           borderRadius: theme.shape.borderRadius * 2, // より柔らかな角丸
           fontWeight: 600,
+          transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out',
           ...(ownerState.variant === 'contained' && {
+            backgroundColor: theme.palette.primary.main + 'CC', // 透明度を追加
             boxShadow: theme.shadows[2],
             '&:hover': {
+              backgroundColor: theme.palette.primary.dark + 'CC', // ホバー時に少し濃い色に、透明度を維持
               boxShadow: theme.shadows[4],
             },
           }),
@@ -128,8 +131,15 @@ const theme = createTheme({
             borderColor: theme.palette.primary.main,
             color: theme.palette.primary.main,
             '&:hover': {
-              backgroundColor: theme.palette.action.hover,
+              backgroundColor: theme.palette.primary.main + '1A', // 透明度をさらに下げてホバーエフェクトを強調
               borderColor: theme.palette.primary.dark,
+              color: theme.palette.primary.dark,
+            },
+          }),
+          ...(ownerState.variant === 'text' && {
+            color: theme.palette.primary.main,
+            '&:hover': {
+              backgroundColor: theme.palette.primary.main + '1A', // 透明度をさらに下げてホバーエフェクトを強調
             },
           }),
         }),

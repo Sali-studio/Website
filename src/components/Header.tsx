@@ -157,10 +157,10 @@ const Header = () => {
         }}
         PaperProps={{
           sx: {
-            backgroundColor: 'rgba(255, 255, 255, 0.7)', // 透明度のある白
+            backgroundColor: 'rgba(255, 255, 255, 0.1)', // さらに透明度を下げた白
             boxShadow: theme.shadows[8], // Material 3のElevationを意識した影
             borderRadius: '16px 0 0 16px', // 右側だけ角丸
-            backdropFilter: 'blur(10px)', // リキッドグラス効果
+            backdropFilter: 'blur(10px) saturate(180%) contrast(120%)', // ガラス・アクリル効果を強化
           },
         }}
         sx={{
