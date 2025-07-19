@@ -89,13 +89,11 @@ const Header = () => {
     <AppBar
       position="fixed" // fixed に変更
       sx={{
-        sx={{
-        backgroundColor: scrolled ? 'rgba(173, 216, 230, 0.3)' : 'transparent', // スクロールで水色系の透明な背景色に
+        backgroundColor: scrolled ? 'rgba(173, 216, 230, 0.7)' : 'transparent', // スクロールで水色系の透明な背景色に
         boxShadow: scrolled ? 3 : 0, // スクロールで影を追加
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out', // アニメーション
         backdropFilter: scrolled ? 'blur(10px) saturate(180%) contrast(120%)' : 'none', // スクロールで液体ガラス効果
         color: scrolled ? theme.palette.text.primary : 'inherit', // スクロールでテキスト色をテーマのprimary text色に変更
-      }}
       }}
     >
       <Toolbar>
