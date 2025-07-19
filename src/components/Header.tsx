@@ -1,12 +1,16 @@
 
 'use client';
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Box, useMediaQuery, useTheme } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md')); // md以下のブレークポイントでモバイルと判断
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,15 +27,73 @@ const Header = () => {
     };
   }, [scrolled]);
 
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Sali Studio', href: '/sali-studio' },
+    { name: 'Guild', href: '/guild' },
+    { name: 'Servers', href: '/servers' },
+    { name: 'News', href: '/news' },
+    { name: 'Other Links', href: '/other-links' },
+  ];
+
+  const drawer = (
+    <Box sx={{ textAlign: 'center', pt: 2 }}>
+      <Typography
+        variant="h6"
+        component="div"
+        sx={{
+          my: 2,
+          fontWeight: 'bold',
+          background: 'linear-gradient(45deg, #0298f1 30%, #86ecff 90%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Salientten.jp
+      </Typography>
+      <List sx={{ px: 2 }}> {/* リスト全体に左右パディングを追加 */}
+        {navItems.map((item) => (
+          <ListItem key={item.name} disablePadding sx={{ mb: 1 }}> {/* 各アイテムの下にマージンを追加 */}
+            <ListItemButton
+              component={Link}
+              href={item.href}
+              onClick={handleDrawerToggle}
+              sx={{
+                textAlign: 'center',
+                py: 1.5,
+                borderRadius: theme.shape.borderRadius * 2, // 角丸を適用
+                backgroundColor: theme.palette.background.default, // 背景色をテーマのdefaultに
+                boxShadow: theme.shadows[1], // Material 3のElevation 1を意識
+                transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+                '&:hover': {
+                  backgroundColor: theme.palette.action.hover, // ホバー時の背景色
+                  boxShadow: theme.shadows[3], // ホバー時のElevation 3を意識
+                  transform: 'translateY(-2px)', // ホバー時の浮き上がり
+                },
+              }}
+            >
+              <ListItemText primary={item.name} primaryTypographyProps={{ variant: 'body1', fontWeight: 'medium', color: theme.palette.text.primary }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <AppBar
       position="fixed" // fixed に変更
       sx={{
-        backgroundColor: scrolled ? 'rgba(33, 33, 33, 0.7)' : 'transparent', // スクロールで背景色を濃いグレーに変更
+        backgroundColor: scrolled ? theme.palette.background.paper + 'CC' : 'transparent', // スクロールで背景色をテーマのpaper色に変更
         boxShadow: scrolled ? 3 : 0, // スクロールで影を追加
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out', // アニメーション
         backdropFilter: scrolled ? 'blur(8px)' : 'none', // スクロールでぼかし効果
-        color: scrolled ? 'white' : 'inherit', // スクロールでテキスト色を白に変更
+        color: scrolled ? theme.palette.text.primary : 'inherit', // スクロールでテキスト色をテーマのprimary text色に変更
       }}
     >
       <Toolbar>
@@ -51,133 +113,63 @@ const Header = () => {
             Salientten.jp
           </Link>
         </Typography>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
+        {isMobile ? (
+          <IconButton
             color="inherit"
-            component={Link}
-            href="/"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            sx={{ ml: 2 }}
           >
-            Home
-          </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/about"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
-          >
-            About Us
-          </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/sali-studio"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
-          >
-            Sali Studio
-          </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/guild"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
-          >
-            Guild
-          </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/servers"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
-          >
-            Servers
-          </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/news"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
-          >
-            News
-          </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/other-links"
-            sx={{
-              borderRadius: '20px',
-              px: 2,
-              py: 1,
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: 'rgba(2, 152, 241, 0.1)',
-              },
-            }}
-          >
-            Other Links
-          </Button>
-        </motion.div>
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          <Box sx={{ display: 'flex' }}>
+            {navItems.map((item) => (
+              <motion.div key={item.name} whileHover={{ scale: 1.1 }}>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  href={item.href}
+                  sx={{
+                    borderRadius: '20px',
+                    px: 2,
+                    py: 1,
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: 'rgba(2, 152, 241, 0.1)',
+                    },
+                  }}
+                >
+                  {item.name}
+                </Button>
+              </motion.div>
+            ))}
+          </Box>
+        )}
       </Toolbar>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        PaperProps={{
+          sx: {
+            backgroundColor: 'rgba(255, 255, 255, 0.7)', // 透明度のある白
+            boxShadow: theme.shadows[8], // Material 3のElevationを意識した影
+            borderRadius: '16px 0 0 16px', // 右側だけ角丸
+            backdropFilter: 'blur(10px)', // リキッドグラス効果
+          },
+        }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </AppBar>
   );
 };

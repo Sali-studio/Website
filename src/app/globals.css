@@ -9,6 +9,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(135deg, #E0F7FA 0%, #BBDEFB 100%);
+  background: linear-gradient(135deg, rgba(173, 216, 230, 0.8) 0%, rgba(135, 206, 250, 0.8) 100%); /* 透明感のある水色グラデーション */
   background-attachment: fixed;
+  backdrop-filter: blur(10px); /* リキッドグラス効果 */
 }
