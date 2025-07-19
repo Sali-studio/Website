@@ -6,6 +6,8 @@ import theme from '@/theme/theme';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageTransition from '@/components/PageTransition';
+import ScrollToTopButton from '@/components/ScrollToTopButton'; // ScrollToTopButtonをインポート
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -18,8 +20,12 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <Header />
-            {props.children}
+            <div id="back-to-top-anchor" /> {/* スクロールターゲット */}
+            <PageTransition>
+              {props.children}
+            </PageTransition>
             <Footer />
+            <ScrollToTopButton />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
