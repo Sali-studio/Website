@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is the official website for Salientten.jp, built with Next.js. The website aims to provide an intuitive and modern user experience (UI/UX) based on Material 3 Expressive design principles.
+This is the official website for sumire server, built with Next.js. The website aims to provide an intuitive and modern user experience (UI/UX) based on Material 3 Expressive design principles.
 
 ## Features
 
