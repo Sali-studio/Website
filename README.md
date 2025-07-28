@@ -1,13 +1,13 @@
-# Website Version 1.0.2
+# Sumire Server Website
 
 ## Project Overview
 
-This is the official website for sumire server, built with Next.js. The website aims to provide an intuitive and modern user experience (UI/UX) based on Material 3 Expressive design principles.
+This is the official website for Sumire Server, built with Next.js. The website aims to provide an intuitive and modern user experience (UI/UX) based on Material 3 Expressive design principles.
 
 ## Features
 
 - **Dynamic Access Counter**: Tracks unique visitors with IP-based and local storage checks to prevent duplicate counts.
-- **Sali Studio Projects Showcase**: Displays GitHub repositories from the Sali-studio organization, fetching real-time star and fork counts.
+- **Sumire Labs Projects Showcase**: Displays GitHub repositories from the Sumire Labs organization, fetching real-time star and fork counts.
 - **News Section**: A dedicated tab for news updates, featuring a clean Material 3-inspired design with smooth animations.
 - **Responsive Design**: Optimized for various screen sizes using Material-UI.
 
