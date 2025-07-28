@@ -83,10 +83,6 @@ data/counter.txt
 
 # Specific files from your project
 google-credentials.json
-log.txt
-test.png
-ZAIRYO.png
-材料.txt
 
 # macOS
 .DS_Store
