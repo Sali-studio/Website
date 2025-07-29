@@ -28,8 +28,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
               {props.children}
             </PageTransition>
             <Footer />
-            <AccessCounter />
-            <KonamiCodeHandler />
+            <ClientSideComponents />
             <ScrollToTopButton />
           </ThemeProvider>
         </AppRouterCacheProvider>
