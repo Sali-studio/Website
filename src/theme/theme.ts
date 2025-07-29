@@ -92,6 +92,11 @@ const theme = createTheme({
       fontSize: '0.875rem',
       lineHeight: 1.5,
     },
+    bodyLarge: {
+      fontSize: '1.125rem', // Material 3 の Body Large に近いサイズ
+      lineHeight: 1.75,
+      fontWeight: 400,
+    },
     button: {
       textTransform: 'none',
       fontWeight: 600,

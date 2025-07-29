@@ -50,7 +50,6 @@ export default function Home() {
             onClick={handleTitleClick} // クリックイベントを追加
             sx={{
               fontWeight: 'bold',
-              background: 'linear-gradient(45deg, #0298f1 30%, #64B5F6 90%)', // タイトルグラデーションを調整
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               fontSize: { xs: '3rem', sm: '4rem', md: '4.5rem' }, // レスポンシブなフォントサイズ
@@ -98,6 +97,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: 'easeInOut' }}
+          sx={{ mt: 4 }} // 上部のマージンを追加
         >
           <Button
             variant="contained" // contained に変更
