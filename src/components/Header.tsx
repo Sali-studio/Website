@@ -114,6 +114,7 @@ const Header = () => {
         >
           <MenuIcon />
         </IconButton>
+      </Toolbar>
       <Drawer
         anchor="right"
         open={drawerOpen}
