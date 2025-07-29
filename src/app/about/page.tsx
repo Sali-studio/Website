@@ -95,12 +95,6 @@ export default function AboutPage() {
           container
           spacing={4}
           justifyContent="center"
-          component={motion.div}
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: { transition: { staggerChildren: 0.1 } },
-          }}
           sx={{ mt: 4 }}
         >
           {members.map((member) => (
