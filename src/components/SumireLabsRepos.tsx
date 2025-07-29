@@ -34,7 +34,7 @@ const SaliStudioRepos: React.FC = () => {
         const repoNames = [
           { owner: 'Sali-studio', repo: 'Luna' },
           { owner: 'Sali-studio', repo: 'Relauncher-Unofficial' },
-          { owner: 'Sali-studio', repo: 'Website' },
+          { owner: 'Sumire-Labs', repo: 'Website' },
         ];
 
         const fetchedRepos = await Promise.all(

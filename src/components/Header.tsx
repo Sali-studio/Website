@@ -34,10 +34,8 @@ const Header = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Sali Studio', href: '/sali-studio' },
-    { name: 'Guild', href: '/guild' },
-    { name: 'Servers', href: '/servers' },
-    { name: 'News', href: '/news' },
+    { name: 'Sumire Labs', href: '/sali-studio' },
+    
     { name: 'Other Links', href: '/other-links' },
   ];
 

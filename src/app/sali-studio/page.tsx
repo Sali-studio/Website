@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-const SaliStudioRepos = dynamic(() => import('@/components/SaliStudioRepos'), { ssr: false });
+const SumireLabsRepos = dynamic(() => import('@/components/SumireLabsRepos'), { ssr: false });
 
 export default function SaliStudioPage() {
   return (
@@ -37,7 +37,7 @@ export default function SaliStudioPage() {
             fontSize: { xs: '3rem', sm: '4rem', md: '4.5rem' },
           }}
         >
-          Sali Studio
+          Sumire Labs
         </Typography>
       </motion.div>
       <motion.div
@@ -55,13 +55,13 @@ export default function SaliStudioPage() {
         transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
       >
         <Typography variant="body1" component="p" sx={{ mb: 4 }}>
-          Sali Studioは、さりさば内で様々なプロジェクトを手掛ける開発チームです。
+          Sumire Labsは、すみれさば内で様々なプロジェクトを手掛ける開発チームです。
           ゲーム開発、ウェブサイト制作、ツール開発など、幅広い分野で活動しています。
           詳細については、今後の更新にご期待ください！
         </Typography>
       </motion.div>
 
-      <SaliStudioRepos />
+      <SumireLabsRepos />
     </Container>
   );
 }

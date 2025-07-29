@@ -12,16 +12,16 @@ export default function AboutPage() {
     {
       id: 1,
       name: '白熊',
-      role: '共同設立者 / Sali Studio代表',
-      description: 'さりさばの設立者の一人であり、Sali Studioの代表を務めています。',
+      role: 'すみれさばスタッフ兼Sumire Labs代表',
+      description: 'すみれさばの設立者の一人であり、Sumire Labsの代表を務めています。',
       avatar: '/images/profile/shirokumaicon.png',
     },
     {
       id: 2,
-      name: 'SalientTen',
-      role: '共同設立者 / さりさば代表 / Sali Studioメンバー',
-      description: '元のさりさばのリーダーでもあり、現在のさりさばの代表を務めています。様々なギルドの代表も務めています。',
-      avatar: '/images/profile/salienttenicon.png'
+      name: 'Sumire',
+      role: 'すみれさば鯖主',
+      description: 'すみれさばの鯖主を務めています。',
+      avatar: '/images/profile/sumireicon.png', // 仮のアイコンパス
     },
     // 他の主要メンバーがいればここに追加してください
   ];
@@ -65,7 +65,7 @@ export default function AboutPage() {
         transition={{ duration: 0.8, delay: 0.3, ease: 'easeInOut' }}
       >
         <Typography variant="h5" component="p" color="text.secondary" sx={{ mb: 4 }}>
-          さりさばについて
+          すみれさばについて
         </Typography>
       </motion.div>
 
@@ -76,7 +76,7 @@ export default function AboutPage() {
       >
         <Typography variant="body1" component="p" sx={{ mb: 8, maxWidth: 800, mx: 'auto' }}>
           さりさばは、様々なゲームのギルドを運営したり、様々なゲームのサーバーを建ててサーバー間の交流を楽しむことができるコミュニティです。
-          Sali Studioが様々なアプリケーション開発を行っています。
+          Sumire Labsが様々なアプリケーション開発を行っています。
         </Typography>
       </motion.div>
 

@@ -25,7 +25,7 @@ const Footer = () => {
     <Box sx={{ width: '100%', mt: 'auto' }}>
       <Container maxWidth="lg" sx={{ py: 3, textAlign: 'center' }}>
         <Typography variant="body2" color="text.secondary">
-          © 2025 Sali Studio. All rights reserved.
+          © 2025 Sumire Labs. All rights reserved.
         </Typography>
         {/* <AccessCounter /> */}
         <Box

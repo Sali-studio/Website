@@ -70,7 +70,7 @@ export default function OtherLinksPage() {
         transition={{ duration: 0.8, delay: 0.3, ease: 'easeInOut' }}
       >
         <Typography variant="h5" component="p" color="text.secondary" sx={{ mb: 4 }}>
-          さりさば関連の便利なリンク集
+          すみれさば関連の便利なリンク集
         </Typography>
       </motion.div>
 

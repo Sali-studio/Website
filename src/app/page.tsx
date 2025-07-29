@@ -58,7 +58,7 @@ export default function Home() {
               '&:hover': { opacity: 0.8 }, // ホバーエフェクト
             }}
           >
-            さりさば
+            すみれさば
           </Typography>
           {showEasterEgg && (
             <motion.div
@@ -90,8 +90,8 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
         >
           <Typography variant="body1" component="p" sx={{ mb: 4, maxWidth: 600, mx: 'auto' }}>
-            さりさばは、白熊とSalientTenによって共同設立された、様々なゲームのギルドを運営したり、様々なゲームのサーバーを建ててサーバー間の交流を楽しむことができるコミュニティです。
-            そして、さりさばの管轄にあるSali Studioで様々なアプリケーション開発を行っています。
+            すみれさばは、白熊とSalientTenによって共同設立された、様々なゲームのギルドを運営したり、様々なゲームのサーバーを建ててサーバー間の交流を楽しむことができるコミュニティです。
+            そして、すみれさばの管轄にあるSumire Labsで様々なアプリケーション開発を行っています。
           </Typography>
         </motion.div>
         <motion.div
