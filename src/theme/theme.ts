@@ -6,9 +6,9 @@ const theme = createTheme({
     mode: 'light',
     // Material 3 Expressive のカラーパレットを意識した色
     primary: {
-      main: '#6750A4', // Vibrant Purple
-      light: '#957DA5',
-      dark: '#4F378B',
+      main: '#007BFF', // A vibrant blue
+      light: '#63A4FF',
+      dark: '#0056B3',
       contrastText: '#FFFFFF',
     },
     secondary: {
@@ -140,16 +140,17 @@ const theme = createTheme({
             borderColor: theme.palette.outline.main,
             color: theme.palette.primary.main,
             '&:hover': {
-              backgroundColor: theme.palette.primary.main + '1A',
+              backgroundColor: theme.palette.primary.main,
               borderColor: theme.palette.primary.dark,
-              color: theme.palette.primary.dark,
+              color: theme.palette.primary.contrastText,
               transform: 'translateY(-2px)',
             },
           }),
           ...(ownerState.variant === 'text' && {
             color: theme.palette.primary.main,
             '&:hover': {
-              backgroundColor: theme.palette.primary.main + '1A',
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
               transform: 'translateY(-2px)',
             },
           }),
