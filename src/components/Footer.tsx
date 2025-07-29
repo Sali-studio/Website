@@ -23,12 +23,16 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <Box sx={{ width: '100%', mt: 'auto', backgroundColor: theme.palette.surfaceContainerLow, py: 3 }}>
-      <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
-        <Typography variant="body2" color="text.secondary">
-          © 2025 Sumire Labs. All rights reserved.
-        </Typography>
-        {/* <AccessCounter /> */}
+    <Box sx={{ width: '100%', mt: 'auto', py: 3 }}> {/* 背景色を削除し、パディングを調整 */}
+      <Container maxWidth="lg">
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+          {/* アクセスカウンターをここに配置 (現在コメントアウト) */}
+          {/* <AccessCounter /> */}
+          <Typography variant="body2" color="text.secondary" sx={{ flexGrow: 1, textAlign: 'center' }}>
+            © 2025 Sumire Labs. All rights reserved.
+          </Typography>
+        </Box>
+        {/* 隠しメッセージのBoxはそのまま残す */}
         <Box
           sx={{
             width: '20px',
@@ -42,7 +46,7 @@ const Footer = () => {
           onClick={handleHiddenClick}
         />
         {showHiddenMessage && (
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+          <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block', textAlign: 'center' }}>
             サーモンを持たない不審な行動は果たして許可されるのだろうか
           </Typography>
         )}

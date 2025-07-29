@@ -2,6 +2,9 @@
 import { Box, Container, Typography, Grid, Card, CardContent, Link as MuiLink } from '@mui/material';
 import { motion } from 'framer-motion';
 import LinkIcon from '@mui/icons-material/Link'; // リンクアイコン
+import DiscordIcon from '@mui/icons-material/Discord'; // Discordアイコン
+import TwitterIcon from '@mui/icons-material/Twitter'; // Twitterアイコン
+import GitHubIcon from '@mui/icons-material/GitHub'; // GitHubアイコン
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },

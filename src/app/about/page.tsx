@@ -8,6 +8,7 @@ const itemVariants = {
 };
 
 export default function AboutPage() {
+  const theme = useTheme();
   const members = [
     {
       id: 1,

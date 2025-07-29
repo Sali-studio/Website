@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Grid, Card, CardContent, Link as MuiLink, CircularProgress, Divider } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, Link as MuiLink, CircularProgress, Divider, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import StarIcon from '@mui/icons-material/Star';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
@@ -23,10 +23,11 @@ interface Repo {
   license: string;
 }
 
-const SaliStudioRepos: React.FC = () => {
+const SumireLabsRepos: React.FC = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const theme = useTheme();
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -179,4 +180,4 @@ const SaliStudioRepos: React.FC = () => {
   );
 };
 
-export default SaliStudioRepos;
+export default SumireLabsRepos;
