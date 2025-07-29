@@ -62,20 +62,22 @@ const Header = () => {
               href={item.href}
               onClick={handleDrawerToggle}
               sx={{
-                textAlign: 'center',
+                display: 'flex', // アイコンとテキストを中央揃え
+                alignItems: 'center', // アイコンとテキストを中央揃え
                 py: 1.5,
-                borderRadius: theme.shape.borderRadius * 2, // 角丸を適用
+                borderRadius: '28px', // より丸い形状
                 backgroundColor: theme.palette.background.paper + '1A', // 透明度のある背景色
                 boxShadow: theme.shadows[0], // 影なし
                 transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                 '&:hover': {
-                  backgroundColor: theme.palette.primary.main + '1A', // ホバー時に青系の透明な背景色
-                  boxShadow: theme.shadows[1], // ホバー時にわずかな影
-                  transform: 'translateY(-2px)', // ホバー時の浮き上がり
+                  backgroundColor: theme.palette.primary.main + '2A', // ホバー時に青系の透明な背景色を少し濃く
+                  boxShadow: theme.shadows[3], // ホバー時に影を強調
+                  transform: 'translateY(-3px)', // ホバー時の浮き上がりを強調
                 },
               }}
             >
-              <ListItemText primary={item.name} primaryTypographyProps={{ variant: 'body1', fontWeight: 'medium', color: theme.palette.text.primary }} />
+              {item.icon} {/* アイコンを追加 */}
+              <ListItemText primary={item.name} primaryTypographyProps={{ variant: 'body1', fontWeight: 'medium', color: theme.palette.text.primary }} sx={{ ml: 2 }} /> {/* アイコンとテキストの間にスペース */}
             </ListItemButton>
           </ListItem>
         ))}
@@ -87,33 +89,40 @@ const Header = () => {
     <AppBar
       position="fixed" // fixed に変更
       sx={{
-        backgroundColor: scrolled ? theme.palette.background.paper + 'E6' : 'transparent', // スクロールでテーマの背景色に
-        boxShadow: scrolled ? theme.shadows[8] : 0, // スクロールで影を追加
-        transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out', // アニメーション
-        backdropFilter: scrolled ? 'blur(10px) saturate(180%) contrast(120%)' : 'none', // スクロールで液体ガラス効果
-        color: scrolled ? theme.palette.text.primary : 'inherit', // スクロールでテキスト色をテーマのprimary text色に変更
-        borderRadius: scrolled ? '0 0 24px 24px' : '0', // スクロール時に下部を丸くする
+        backgroundColor: 'transparent', // 常に透明
+        boxShadow: 0, // 常に影なし
+        transition: 'none', // トランジションなし
+        backdropFilter: 'none', // 常にフィルターなし
+        color: 'inherit', // 常にinherit
+        borderRadius: '0', // 常に角丸なし
       }}
     >
       <Toolbar>
         <Link href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-          <Image
-            src="/images/profile/sumire_server_icon.png"
-            alt="Sumire Server Icon"
-            width={40} // アイコンのサイズを調整
-            height={40} // アイコンのサイズを調整
-            style={{ borderRadius: '50%', marginRight: theme.spacing(1) }} // 丸いアイコンにする
-          />
+          {/* アイコンを削除 */}
         </Link>
-        <IconButton
-          color="inherit"
+        <Button
+          color="primary" // プライマリカラーを使用
           aria-label="open drawer"
-          edge="end"
           onClick={handleDrawerToggle}
-          sx={{ ml: 'auto' }} // 右寄せにする
+          sx={{
+            ml: 'auto', // 右寄せにする
+            minWidth: '56px', // ボタンの最小幅
+            height: '56px', // ボタンの高さ
+            borderRadius: '50%', // 円形にする
+            boxShadow: theme.shadows[4], // 影を追加
+            transition: 'all 0.3s ease-in-out', // ホバーアニメーション
+            backgroundColor: theme.palette.primary.main, // 背景色
+            color: theme.palette.primary.contrastText, // アイコンの色
+            '&:hover': {
+              backgroundColor: theme.palette.primary.dark, // ホバー時に濃くする
+              boxShadow: theme.shadows[8], // ホバー時に影を強調
+              transform: 'scale(1.05)', // ホバー時に少し拡大
+            },
+          }}
         >
           <MenuIcon />
-        </IconButton>
+        </Button>
       </Toolbar>
       <Drawer
         anchor="right"
@@ -124,14 +133,13 @@ const Header = () => {
         }}
         PaperProps={{
           sx: {
-            backgroundColor: 'rgba(255, 255, 255, 0.1)', // さらに透明度を下げた白
-            boxShadow: theme.shadows[8], // Material 3のElevationを意識した影
-            borderRadius: '16px 0 0 16px', // 右側だけ角丸
-            backdropFilter: 'blur(10px) saturate(180%) contrast(120%)', // ガラス・アクリル効果を強化
+            backgroundColor: theme.palette.surface.main + 'F2', // さらに不透明度を上げた白
+            boxShadow: theme.shadows[12], // Material 3のElevationを意識した影
+            borderRadius: '24px 0 0 24px', // 右側だけ角丸を強調
+            backdropFilter: 'blur(16px) saturate(200%) contrast(120%)', // ガラス・アクリル効果を強化
           },
         }}
         sx={{
-          display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
         }}
       >

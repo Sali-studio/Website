@@ -111,19 +111,30 @@ export default function AboutPage() {
                     minHeight: 280, // カードの高さを調整
                     display: 'flex',
                     flexDirection: 'column',
-                    background: 'linear-gradient(135deg, #B3E5FC 0%, #90CAF9 100%)',
+                    background: theme.palette.surfaceContainerHigh, // テーマのサーフェスカラーを使用
                     boxShadow: theme.shadows[3],
-                    borderRadius: theme.shape.borderRadius * 2,
+                    borderRadius: '28px', // より柔らかな角丸
                     transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                     '&:hover': {
-                      boxShadow: theme.shadows[6],
-                      transform: 'translateY(-5px)',
+                      boxShadow: theme.shadows[8], // ホバー時に影を強調
+                      transform: 'translateY(-8px)', // ホバー時の浮き上がりを強調
                     },
                   })}
                 >
                   <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                    <Avatar alt={member.name} src={member.avatar} sx={{ width: 80, height: 80, mx: 'auto', mb: 2 }} />
-                    <Typography gutterBottom variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
+                    <Avatar
+                      alt={member.name}
+                      src={member.avatar}
+                      sx={{
+                        width: 96, // アバターサイズを少し大きく
+                        height: 96, // アバターサイズを少し大きく
+                        mx: 'auto',
+                        mb: 2,
+                        border: `4px solid ${theme.palette.primary.main}`, // プライマリカラーのリング
+                        boxShadow: theme.shadows[3], // アバターにも影
+                      }}
+                    />
+                    <Typography gutterBottom variant="h6" component="h3" sx={{ fontWeight: 'bold', color: theme.palette.text.primary }}>
                       {member.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>

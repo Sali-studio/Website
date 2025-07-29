@@ -4,24 +4,24 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     mode: 'light',
-    // Material 3 Expressive のカラーパレットを意識した色
+    // Material 3 Expressive のカラーパレットを意識した色 (青系に調整)
     primary: {
-      main: '#007BFF', // A vibrant blue
-      light: '#63A4FF',
-      dark: '#0056B3',
+      main: '#0077B6', // 深みのある鮮やかな青
+      light: '#4FC3F7',
+      dark: '#004D80',
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#625B71', // Muted Grey-Purple
-      light: '#7A7289',
-      dark: '#4A4458',
+      main: '#66BB6A', // 補完的な緑
+      light: '#81C784',
+      dark: '#388E3C',
       contrastText: '#FFFFFF',
     },
     tertiary: {
-      main: '#7D5260', // Warm Rose
-      light: '#98697A',
-      dark: '#633B48',
-      contrastText: '#FFFFFF',
+      main: '#FFB74D', // アクセントのオレンジ
+      light: '#FFCC80',
+      dark: '#FB8C00',
+      contrastText: '#000000',
     },
     error: {
       main: '#B3261E', // Standard Material 3 Error
@@ -30,28 +30,25 @@ const theme = createTheme({
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#FFFBFE', // Light background
-      paper: '#FFFBFE', // Surface color for cards, etc.
+      default: '#F8F8F8', // 非常に薄いグレー
+      paper: '#FFFFFF', // 純粋な白
     },
     text: {
       primary: '#1C1B1F', // Dark text
       secondary: '#49454F', // Muted text
     },
     // Material 3 の Elevation に対応する色を定義
-    surface: {
-      main: '#FFFBFE', // Base surface
-      variant: '#E7E0EC', // Slightly elevated surface
-    },
-    outline: {
-      main: '#79747E', // Outline color
-    },
-    // Additional Material 3 colors
-    surfaceVariant: {
-      main: '#E7E0EC',
-    },
-    onSurfaceVariant: {
-      main: '#49454F',
-    },
+    surface: '#FFFFFF', // Base surface (純粋な白)
+    surfaceDim: '#DED8E1', // Dim surface
+    surfaceBright: '#F8F8F8', // Bright surface
+    surfaceContainerLowest: '#FFFFFF', // Lowest elevation
+    surfaceContainerLow: '#F8F8F8', // Low elevation
+    surfaceContainer: '#F0F0F0', // Default elevation
+    surfaceContainerHigh: '#E8E8E8', // High elevation
+    surfaceContainerHighest: '#E0E0E0', // Highest elevation
+    outline: '#79747E', // Outline color
+    surfaceVariant: '#E0E0E0', // Surface variant
+    onSurfaceVariant: '#49454F', // On surface variant
   },
   typography: {
     fontFamily: '"Roboto", "Noto Sans JP", "Helvetica", "Arial", sans-serif', // Noto Sans JP を追加
@@ -186,7 +183,7 @@ const theme = createTheme({
         paper: ({
           theme
         }) => ({
-          backgroundColor: theme.palette.surface.main + 'E6', // Drawer の背景色を Material 3 の Surface に合わせる
+          backgroundColor: theme.palette.surfaceContainerHighest + 'E6', // Drawer の背景色を Material 3 の SurfaceContainerHighest に合わせる
           boxShadow: theme.shadows[8],
           borderRadius: '16px 0 0 16px',
           backdropFilter: 'blur(10px) saturate(180%) contrast(120%)',
@@ -198,11 +195,11 @@ const theme = createTheme({
         root: ({
           theme
         }) => ({
-          borderRadius: '16px',
+          borderRadius: '28px',
           '&:hover': {
-            backgroundColor: theme.palette.primary.main + '1A',
-            boxShadow: theme.shadows[1],
-            transform: 'translateY(-2px)',
+            backgroundColor: theme.palette.primary.main + '2A',
+            boxShadow: theme.shadows[3],
+            transform: 'translateY(-3px)',
           },
         }),
       },

@@ -80,7 +80,7 @@ export default function Home() {
           style={{ y: yDescription }} // パララックス効果を適用
         >
           <Typography variant="h5" component="p" color="text.secondary" sx={{ mb: 2 }}>
-            「さりさば」公式サイト
+            「すみれさば」公式サイト
             現在サーバー移行期間中
           </Typography>
         </motion.div>

@@ -97,13 +97,13 @@ export default function OtherLinksPage() {
                       minHeight: 180, // カードの高さを調整
                       display: 'flex',
                       flexDirection: 'column',
-                      background: 'linear-gradient(135deg, #B3E5FC 0%, #90CAF9 100%)', // 中間の濃さに調整
+                      background: theme.palette.surfaceContainerHigh, // テーマのサーフェスカラーを使用
                       boxShadow: theme.shadows[3],
-                      borderRadius: theme.shape.borderRadius * 2,
+                      borderRadius: '28px', // より柔らかな角丸
                       transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                       '&:hover': {
-                        boxShadow: theme.shadows[6],
-                        transform: 'translateY(-5px)',
+                        boxShadow: theme.shadows[8], // ホバー時に影を強調
+                        transform: 'translateY(-8px)', // ホバー時の浮き上がりを強調
                       },
                     })}
                   >
@@ -114,11 +114,13 @@ export default function OtherLinksPage() {
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 2, minHeight: 60, overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       {link.description}
                     </Typography>
-                      <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1, mt: 1.5 })}> 
-                        <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '8px', backgroundColor: theme.palette.action.hover })}> 
-                          <LinkIcon sx={(theme) => ({ fontSize: 18, mr: 0.5, color: theme.palette.primary.main })} />
-                          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>Link</Typography>
-                        </Box>
+                      <Box sx={(theme) => ({
+                        display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '16px', // チップのような形状
+                        backgroundColor: theme.palette.surfaceContainerLow, // 低いElevationのサーフェスカラー
+                        boxShadow: theme.shadows[1],
+                      })}> 
+                        {link.icon} {/* アイコンを表示 */}
+                        <Typography variant="body2" sx={{ fontWeight: 'bold', ml: 0.5 }}>{link.name}</Typography> 
                       </Box>
                     </CardContent>
                   </Card>

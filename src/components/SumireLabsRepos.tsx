@@ -113,19 +113,19 @@ const SaliStudioRepos: React.FC = () => {
                     minHeight: 180,
                     display: 'flex',
                     flexDirection: 'column',
-                    background: 'linear-gradient(135deg, #B3E5FC 0%, #90CAF9 100%)',
+                    background: theme.palette.surfaceContainerHigh, // テーマのサーフェスカラーを使用
                     boxShadow: theme.shadows[3],
-                    borderRadius: theme.shape.borderRadius * 2,
+                    borderRadius: '28px', // より柔らかな角丸
                     transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                     '&:hover': {
-                      boxShadow: theme.shadows[6],
-                      transform: 'translateY(-5px)',
+                      boxShadow: theme.shadows[8], // ホバー時に影を強調
+                      transform: 'translateY(-8px)', // ホバー時の浮き上がりを強調
                     },
                   })}
                 >
                   <CardContent sx={{ flexGrow: 1, p: 3 }}>
                     <MuiLink href={repo.url} target="_blank" rel="noopener" sx={{ textDecoration: 'none', color: 'inherit' }}>
-                      <Typography gutterBottom variant="h6" component="h3" sx={{ fontWeight: 'bold', mb: 1 }}>
+                      <Typography gutterBottom variant="h6" component="h3" sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.text.primary }}>
                         {repo.name}
                       </Typography>
                     </MuiLink>
@@ -134,21 +134,37 @@ const SaliStudioRepos: React.FC = () => {
                     </Typography>
                     <Divider sx={{ my: 1.5 }} />
                     <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1, mt: 1.5 })}> 
-                      <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '8px', backgroundColor: theme.palette.action.hover })}> 
+                      <Box sx={(theme) => ({
+                        display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '16px', // チップのような形状
+                        backgroundColor: theme.palette.surfaceContainerLow, // 低いElevationのサーフェスカラー
+                        boxShadow: theme.shadows[1],
+                      })}> 
                         <StarIcon sx={(theme) => ({ fontSize: 18, mr: 0.5, color: theme.palette.warning.main })} /> 
                         <Typography variant="body2" sx={{ fontWeight: 'bold' }}>{repo.stars}</Typography> 
                       </Box>
-                      <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '8px', backgroundColor: theme.palette.action.hover })}> 
+                      <Box sx={(theme) => ({
+                        display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '16px', // チップのような形状
+                        backgroundColor: theme.palette.surfaceContainerLow, // 低いElevationのサーフェスカラー
+                        boxShadow: theme.shadows[1],
+                      })}> 
                         <ForkRightIcon sx={(theme) => ({ fontSize: 18, mr: 0.5, color: theme.palette.success.main })} /> 
                         <Typography variant="body2" sx={{ fontWeight: 'bold' }}>{repo.forks}</Typography> 
                       </Box>
-                      <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '8px', backgroundColor: theme.palette.action.hover })}> 
-                        <Typography variant="body2" sx={{ fontStyle: 'italic', fontWeight: 'bold' }}>{repo.language}</Typography> 
+                      <Box sx={(theme) => ({
+                        display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '16px', // チップのような形状
+                        backgroundColor: theme.palette.surfaceContainerLow, // 低いElevationのサーフェスカラー
+                        boxShadow: theme.shadows[1],
+                      })}> 
+                        <Typography variant="body2" sx={{ fontStyle: 'italic', fontWeight: 'bold', color: theme.palette.text.secondary }}>{repo.language}</Typography> 
                       </Box>
                       {repo.license && repo.license !== 'No license' && (
-                        <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '8px', backgroundColor: theme.palette.action.hover })}> 
+                        <Box sx={(theme) => ({
+                          display: 'flex', alignItems: 'center', p: 0.8, borderRadius: '16px', // チップのような形状
+                          backgroundColor: theme.palette.surfaceContainerLow, // 低いElevationのサーフェスカラー
+                          boxShadow: theme.shadows[1],
+                        })}> 
                           <GavelIcon sx={(theme) => ({ fontSize: 18, mr: 0.5, color: theme.palette.text.secondary })} /> 
-                          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>{repo.license}</Typography> 
+                          <Typography variant="body2" sx={{ fontWeight: 'bold', color: theme.palette.text.secondary }}>{repo.license}</Typography> 
                         </Box>
                       )}
                     </Box>

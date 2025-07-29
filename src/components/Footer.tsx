@@ -1,7 +1,7 @@
 
 'use client';
 import React, { useState } from 'react'; // useState を追加
-import { Box, Container, Typography, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
+import { Box, Container, Typography, BottomNavigation, BottomNavigationAction, Paper, useTheme } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -9,6 +9,7 @@ const Footer = () => {
   const pathname = usePathname();
   const [value, setValue] = React.useState(pathname);
   const [showHiddenMessage, setShowHiddenMessage] = useState(false);
+  const theme = useTheme();
 
   const handleHiddenClick = () => {
     setShowHiddenMessage(true);
@@ -22,8 +23,8 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <Box sx={{ width: '100%', mt: 'auto' }}>
-      <Container maxWidth="lg" sx={{ py: 3, textAlign: 'center' }}>
+    <Box sx={{ width: '100%', mt: 'auto', backgroundColor: theme.palette.surfaceContainerLow, py: 3 }}>
+      <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
         <Typography variant="body2" color="text.secondary">
           © 2025 Sumire Labs. All rights reserved.
         </Typography>
