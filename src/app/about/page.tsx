@@ -98,7 +98,7 @@ export default function AboutPage() {
           sx={{ mt: 4 }}
         >
           {members.map((member) => (
-            <Grid item key={member.id} xs={12} sm={6} md={4}>
+            <Grid item key={member.id} xs={12} sm={6} md={4} component="div">
               <motion.div variants={itemVariants} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                 <Card
                   sx={(theme) => ({
