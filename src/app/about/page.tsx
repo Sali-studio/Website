@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container, Typography, Grid, Card, CardContent, Avatar } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, Avatar, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const itemVariants = {
