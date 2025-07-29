@@ -104,51 +104,16 @@ const Header = () => {
             height={40} // アイコンのサイズを調整
             style={{ borderRadius: '50%', marginRight: theme.spacing(1) }} // 丸いアイコンにする
           />
-          
         </Link>
-        {isMobile ? (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
-            sx={{ ml: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-        ) : (
-          <Box sx={{ display: 'flex', gap: 2 }}> {/* ボタン間のスペースを調整 */}
-            {navItems.map((item) => (
-              <motion.div key={item.name} whileHover={{ scale: 1.1 }}>
-                <Button
-                  color="inherit"
-                  component={Link}
-                  href={item.href}
-                  startIcon={item.icon} // アイコンを追加
-                  sx={{
-                    borderRadius: '50px', // より丸いピル型
-                    px: 3, // 左右のパディングを調整
-                    py: 1.2, // 上下のパディングを調整
-                    fontWeight: 'bold',
-                    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)', // 影を追加
-                    transition: 'all 0.3s ease-in-out', // ホバーアニメーション
-                    '&:hover': {
-                      backgroundColor: 'rgba(2, 152, 241, 0.15)', // ホバー時の背景色を少し濃く
-                      transform: 'translateY(-2px)', // ホバーで少し浮き上がる
-                      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // ホバーで影を強調
-                    },
-                    '& .MuiButton-startIcon': {
-                      marginRight: '8px', // アイコンとテキストの間のスペース
-                    },
-                  }}
-                >
-                  {item.name}
-                </Button>
-              </motion.div>
-            ))}
-          </Box>
-        )}
-      </Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          onClick={handleDrawerToggle}
+          sx={{ ml: 'auto' }} // 右寄せにする
+        >
+          <MenuIcon />
+        </IconButton>
       <Drawer
         anchor="right"
         open={drawerOpen}
