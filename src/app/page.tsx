@@ -90,7 +90,7 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
         >
           <Typography variant="body1" component="p" sx={{ mb: 4, maxWidth: 600, mx: 'auto' }}>
-            すみれさばは、白熊とSalientTenによって共同設立された、様々なゲームのギルドを運営したり、様々なゲームのサーバーを建ててサーバー間の交流を楽しむことができるコミュニティです。
+            すみれさばは、白熊とSumireによって共同設立された、様々なゲームのギルドを運営したり、様々なゲームのサーバーを建ててサーバー間の交流を楽しむことができるコミュニティです。
             そして、すみれさばの管轄にあるSumire Labsで様々なアプリケーション開発を行っています。
           </Typography>
         </motion.div>
@@ -99,7 +99,26 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: 'easeInOut' }}
         >
-          <Button variant="outlined" size="large" color="primary" href="https://discord.gg/rgwF6Xv44m" target="_blank" startIcon={<ChatBubbleOutlineIcon />}> {/* variantをoutlinedに、Chatアイコンを追加 */}
+          <Button
+            variant="contained" // contained に変更
+            size="large"
+            color="primary"
+            href="https://discord.gg/rgwF6Xv44m"
+            target="_blank"
+            startIcon={<ChatBubbleOutlineIcon />}
+            sx={{
+              borderRadius: '50px', // より丸みを帯びた形状
+              px: 4, // 左右のパディングを増やす
+              py: 1.5, // 上下のパディングを増やす
+              fontWeight: 'bold',
+              boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // 影を追加
+              transition: 'all 0.3s ease-in-out', // ホバーアニメーション
+              '&:hover': {
+                transform: 'translateY(-3px)', // ホバーで少し浮き上がる
+                boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.3)', // ホバーで影を強調
+              },
+            }}
+          >
             Discordに参加
           </Button>
         </motion.div>

@@ -4,80 +4,87 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     mode: 'light',
-    // Material 3 のカラーパレットを意識した青を基調とした色
+    // Material 3 Expressive のカラーパレットを意識した色
     primary: {
-      main: '#0066CC', // Core blue
-      light: '#42A5F5', // Lighter shade
-      dark: '#003366', // Darker shade
+      main: '#6750A4', // Vibrant Purple
+      light: '#957DA5',
+      dark: '#4F378B',
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#66BB6A', // Complementary green
-      light: '#81C784',
-      dark: '#388E3C',
+      main: '#625B71', // Muted Grey-Purple
+      light: '#7A7289',
+      dark: '#4A4458',
       contrastText: '#FFFFFF',
     },
     tertiary: {
-      main: '#FFB74D', // Accent orange
-      light: '#FFCC80',
-      dark: '#FB8C00',
-      contrastText: '#000000',
+      main: '#7D5260', // Warm Rose
+      light: '#98697A',
+      dark: '#633B48',
+      contrastText: '#FFFFFF',
     },
     error: {
-      main: '#B00020', // Material 3 Error color
-      light: '#CF6679',
-      dark: '#880E4F',
+      main: '#B3261E', // Standard Material 3 Error
+      light: '#E46962',
+      dark: '#8C0001',
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#F5F5F5', // Light gray background for overall page
-      paper: '#FFFFFF', // White for surfaces like cards
+      default: '#FFFBFE', // Light background
+      paper: '#FFFBFE', // Surface color for cards, etc.
     },
     text: {
-      primary: '#1C1B1F', // Dark gray for primary text
-      secondary: '#49454F', // Medium gray for secondary text
+      primary: '#1C1B1F', // Dark text
+      secondary: '#49454F', // Muted text
     },
     // Material 3 の Elevation に対応する色を定義
     surface: {
-      main: '#FFFFFF',
-      variant: '#F0F0F0',
+      main: '#FFFBFE', // Base surface
+      variant: '#E7E0EC', // Slightly elevated surface
     },
     outline: {
-      main: '#79747E',
+      main: '#79747E', // Outline color
+    },
+    // Additional Material 3 colors
+    surfaceVariant: {
+      main: '#E7E0EC',
+    },
+    onSurfaceVariant: {
+      main: '#49454F',
     },
   },
   typography: {
     fontFamily: '"Roboto", "Noto Sans JP", "Helvetica", "Arial", sans-serif', // Noto Sans JP を追加
     h1: {
       fontWeight: 700,
-      fontSize: '3.5rem',
+      fontSize: '4rem', // Material 3 の Display Large に近いサイズ
       letterSpacing: '-0.01562em',
       lineHeight: 1.1,
     },
     h2: {
       fontWeight: 600,
-      fontSize: '2.5rem',
+      fontSize: '3rem', // Material 3 の Display Medium に近いサイズ
       letterSpacing: '-0.00833em',
       lineHeight: 1.2,
     },
     h3: {
       fontWeight: 500,
-      fontSize: '2rem',
+      fontSize: '2.5rem', // Material 3 の Headline Large に近いサイズ
       lineHeight: 1.3,
     },
     h4: {
       fontWeight: 500,
-      fontSize: '1.75rem',
+      fontSize: '2rem', // Material 3 の Headline Medium に近いサイズ
       lineHeight: 1.4,
     },
     h5: {
       fontWeight: 500,
-      fontSize: '1.5rem',
+      fontSize: '1.75rem', // Material 3 の Headline Small に近いサイズ
       lineHeight: 1.5,
     },
     h6: {
       fontWeight: 500,
-      fontSize: '1.25rem',
+      fontSize: '1.5rem', // Material 3 の Title Large に近いサイズ
       lineHeight: 1.6,
     },
     body1: {
@@ -116,30 +123,34 @@ const theme = createTheme({
           ownerState,
           theme
         }) => ({
-          borderRadius: theme.shape.borderRadius * 2, // より柔らかな角丸
+          borderRadius: '28px', // Material 3 の角丸
           fontWeight: 600,
-          transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out',
+          transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out',
           ...(ownerState.variant === 'contained' && {
-            backgroundColor: theme.palette.primary.main + 'CC', // 透明度を追加
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
             boxShadow: theme.shadows[2],
             '&:hover': {
-              backgroundColor: theme.palette.primary.dark + 'CC', // ホバー時に少し濃い色に、透明度を維持
+              backgroundColor: theme.palette.primary.dark,
               boxShadow: theme.shadows[4],
+              transform: 'translateY(-2px)',
             },
           }),
           ...(ownerState.variant === 'outlined' && {
-            borderColor: theme.palette.primary.main,
+            borderColor: theme.palette.outline.main,
             color: theme.palette.primary.main,
             '&:hover': {
-              backgroundColor: theme.palette.primary.main + '1A', // 透明度をさらに下げてホバーエフェクトを強調
+              backgroundColor: theme.palette.primary.main + '1A',
               borderColor: theme.palette.primary.dark,
               color: theme.palette.primary.dark,
+              transform: 'translateY(-2px)',
             },
           }),
           ...(ownerState.variant === 'text' && {
             color: theme.palette.primary.main,
             '&:hover': {
-              backgroundColor: theme.palette.primary.main + '1A', // 透明度をさらに下げてホバーエフェクトを強調
+              backgroundColor: theme.palette.primary.main + '1A',
+              transform: 'translateY(-2px)',
             },
           }),
         }),
@@ -150,12 +161,47 @@ const theme = createTheme({
         root: ({
           theme
         }) => ({
-          borderRadius: theme.shape.borderRadius * 2, // より柔らかな角丸
+          borderRadius: '28px', // Material 3 の角丸
           boxShadow: theme.shadows[1], // Material 3のElevation 1を意識
           transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
           '&:hover': {
             boxShadow: theme.shadows[3], // ホバー時のElevation 3を意識
-            transform: 'translateY(-2px)', // ホバー時の浮き上がりを微調整
+            transform: 'translateY(-4px)', // ホバー時の浮き上がりを強調
+          },
+        }),
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: ({
+          theme
+        }) => ({
+          transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out',
+        }),
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: ({
+          theme
+        }) => ({
+          backgroundColor: theme.palette.surface.main + 'E6', // Drawer の背景色を Material 3 の Surface に合わせる
+          boxShadow: theme.shadows[8],
+          borderRadius: '16px 0 0 16px',
+          backdropFilter: 'blur(10px) saturate(180%) contrast(120%)',
+        }),
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: ({
+          theme
+        }) => ({
+          borderRadius: '16px',
+          '&:hover': {
+            backgroundColor: theme.palette.primary.main + '1A',
+            boxShadow: theme.shadows[1],
+            transform: 'translateY(-2px)',
           },
         }),
       },

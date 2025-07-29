@@ -5,6 +5,11 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem
 import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image'; // Image コンポーネントをインポート
+import HomeIcon from '@mui/icons-material/Home'; // HomeIcon をインポート
+import InfoIcon from '@mui/icons-material/Info'; // InfoIcon をインポート
+import ScienceIcon from '@mui/icons-material/Science'; // ScienceIcon をインポート
+import LinkIcon from '@mui/icons-material/Link'; // LinkIcon をインポート
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -32,28 +37,23 @@ const Header = () => {
   };
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Sumire Labs', href: '/sali-studio' },
-    
-    { name: 'Other Links', href: '/other-links' },
+    { name: 'Home', href: '/', icon: <HomeIcon /> },
+    { name: 'About Us', href: '/about', icon: <InfoIcon /> },
+    { name: 'Sumire Labs', href: '/sali-studio', icon: <ScienceIcon /> },
+    { name: 'Other Links', href: '/other-links', icon: <LinkIcon /> },
   ];
 
   const drawer = (
     <Box sx={{ textAlign: 'center', pt: 2 }}>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{
-          my: 2,
-          fontWeight: 'bold',
-          background: 'linear-gradient(45deg, #0298f1 30%, #86ecff 90%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        }}
-      >
-        Salientten.jp
-      </Typography>
+      <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Image
+          src="/images/profile/sumire_server_icon.png"
+          alt="Sumire Server Icon"
+          width={60} // アイコンのサイズを調整
+          height={60} // アイコンのサイズを調整
+          style={{ borderRadius: '50%', marginBottom: theme.spacing(2) }} // 丸いアイコンにする
+        />
+      </Link>
       <List sx={{ px: 2 }}> {/* リスト全体に左右パディングを追加 */}
         {navItems.map((item) => (
           <ListItem key={item.name} disablePadding sx={{ mb: 1 }}> {/* 各アイテムの下にマージンを追加 */}
@@ -87,30 +87,25 @@ const Header = () => {
     <AppBar
       position="fixed" // fixed に変更
       sx={{
-        backgroundColor: scrolled ? 'rgba(173, 216, 230, 0.7)' : 'transparent', // スクロールで水色系の透明な背景色に
-        boxShadow: scrolled ? 3 : 0, // スクロールで影を追加
+        backgroundColor: scrolled ? theme.palette.background.paper + 'E6' : 'transparent', // スクロールでテーマの背景色に
+        boxShadow: scrolled ? theme.shadows[8] : 0, // スクロールで影を追加
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out', // アニメーション
         backdropFilter: scrolled ? 'blur(10px) saturate(180%) contrast(120%)' : 'none', // スクロールで液体ガラス効果
         color: scrolled ? theme.palette.text.primary : 'inherit', // スクロールでテキスト色をテーマのprimary text色に変更
+        borderRadius: scrolled ? '0 0 24px 24px' : '0', // スクロール時に下部を丸くする
       }}
     >
       <Toolbar>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            fontWeight: 'bold',
-            fontSize: '1.5rem',
-            background: 'linear-gradient(45deg, #0298f1 30%, #86ecff 90%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
-          <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-            Salientten.jp
-          </Link>
-        </Typography>
+        <Link href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
+          <Image
+            src="/images/profile/sumire_server_icon.png"
+            alt="Sumire Server Icon"
+            width={40} // アイコンのサイズを調整
+            height={40} // アイコンのサイズを調整
+            style={{ borderRadius: '50%', marginRight: theme.spacing(1) }} // 丸いアイコンにする
+          />
+          
+        </Link>
         {isMobile ? (
           <IconButton
             color="inherit"
@@ -122,20 +117,28 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
         ) : (
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', gap: 2 }}> {/* ボタン間のスペースを調整 */}
             {navItems.map((item) => (
               <motion.div key={item.name} whileHover={{ scale: 1.1 }}>
                 <Button
                   color="inherit"
                   component={Link}
                   href={item.href}
+                  startIcon={item.icon} // アイコンを追加
                   sx={{
-                    borderRadius: '20px',
-                    px: 2,
-                    py: 1,
+                    borderRadius: '50px', // より丸いピル型
+                    px: 3, // 左右のパディングを調整
+                    py: 1.2, // 上下のパディングを調整
                     fontWeight: 'bold',
+                    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)', // 影を追加
+                    transition: 'all 0.3s ease-in-out', // ホバーアニメーション
                     '&:hover': {
-                      backgroundColor: 'rgba(2, 152, 241, 0.1)',
+                      backgroundColor: 'rgba(2, 152, 241, 0.15)', // ホバー時の背景色を少し濃く
+                      transform: 'translateY(-2px)', // ホバーで少し浮き上がる
+                      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // ホバーで影を強調
+                    },
+                    '& .MuiButton-startIcon': {
+                      marginRight: '8px', // アイコンとテキストの間のスペース
                     },
                   }}
                 >
