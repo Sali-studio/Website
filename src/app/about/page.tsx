@@ -104,49 +104,57 @@ export default function AboutPage() {
           sx={{ mt: 4 }}
         >
           {members.map((member) => (
-            <Grid item key={member.id} xs={12} sm={6} md={4}>
-              <motion.div variants={itemVariants} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Card
-                  sx={(theme) => ({
-                    maxWidth: 345,
-                    minHeight: 280, // カードの高さを調整
-                    display: 'flex',
-                    flexDirection: 'column',
-                    background: theme.palette.surfaceContainerHigh, // テーマのサーフェスカラーを使用
-                    boxShadow: theme.shadows[3],
-                    borderRadius: '28px', // より柔らかな角丸
-                    transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
-                    '&:hover': {
-                      boxShadow: theme.shadows[8], // ホバー時に影を強調
-                      transform: 'translateY(-8px)', // ホバー時の浮き上がりを強調
-                    },
-                  })}
-                >
-                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                    <Avatar
-                      alt={member.name}
-                      src={member.avatar}
-                      sx={{
-                        width: 96, // アバターサイズを少し大きく
-                        height: 96, // アバターサイズを少し大きく
-                        mx: 'auto',
-                        mb: 2,
-                        border: `4px solid ${theme.palette.primary.main}`, // プライマリカラーのリング
-                        boxShadow: theme.shadows[3], // アバターにも影
-                      }}
-                    />
-                    <Typography gutterBottom variant="h6" component="h3" sx={{ fontWeight: 'bold', color: theme.palette.text.primary }}>
-                      {member.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                      {member.role}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ minHeight: 60, overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                      {member.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </motion.div>
+            <Grid
+              item
+              key={member.id}
+              xs={12}
+              sm={6}
+              md={4}
+              component={motion.div} // Grid item を motion.div にする
+              variants={itemVariants}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Card
+                sx={(theme) => ({
+                  maxWidth: 345,
+                  minHeight: 280, // カードの高さを調整
+                  display: 'flex',
+                  flexDirection: 'column',
+                  background: theme.palette.surfaceContainerHigh, // テーマのサーフェスカラーを使用
+                  boxShadow: theme.shadows[3],
+                  borderRadius: '28px', // より柔らかな角丸
+                  transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+                  '&:hover': {
+                    boxShadow: theme.shadows[8], // ホバー時に影を強調
+                    transform: 'translateY(-8px)', // ホバー時の浮き上がりを強調
+                  },
+                })}
+              >
+                <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                  <Avatar
+                    alt={member.name}
+                    src={member.avatar}
+                    sx={{
+                      width: 96, // アバターサイズを少し大きく
+                      height: 96, // アバターサイズを少し大きく
+                      mx: 'auto',
+                      mb: 2,
+                      border: `4px solid ${theme.palette.primary.main}`, // プライマリカラーのリング
+                      boxShadow: theme.shadows[3], // アバターにも影
+                    }}
+                  />
+                  <Typography gutterBottom variant="h6" component="h3" sx={{ fontWeight: 'bold', color: theme.palette.text.primary }}>
+                    {member.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                    {member.role}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ minHeight: 60, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {member.description}
+                  </Typography>
+                </CardContent>
+              </Card>
             </Grid>
       </Box>
     </Container>
