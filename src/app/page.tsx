@@ -16,6 +16,7 @@ export default function Home() {
   const yDescription = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
 
   const [showEasterEgg, setShowEasterEgg] = useState(false);
+  const theme = useTheme();
 
   const handleTitleClick = () => {
     setShowEasterEgg(true);
@@ -50,11 +51,10 @@ export default function Home() {
             onClick={handleTitleClick} // クリックイベントを追加
             sx={{
               fontWeight: 'bold',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
               fontSize: { xs: '3rem', sm: '4rem', md: '4.5rem' }, // レスポンシブなフォントサイズ
               cursor: 'pointer', // カーソルをポインターに変更
               '&:hover': { opacity: 0.8 }, // ホバーエフェクト
+              color: theme.palette.primary.main, // テーマのプライマリカラーを適用
             }}
           >
             すみれさば

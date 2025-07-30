@@ -7,10 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import dynamic from 'next/dynamic';
-
-const AccessCounter = dynamic(() => import('@/components/AccessCounter'), { ssr: false });
-const KonamiCodeHandler = dynamic(() => import('@/components/KonamiCodeHandler'), { ssr: false });
+import ClientSideComponents from '@/components/ClientSideComponents';
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (

@@ -142,6 +142,8 @@ export default function AboutPage() {
                 </Card>
               </motion.div>
             </Grid>
+          ))}
+        </Grid>
       </Box>
     </Container>
   );
